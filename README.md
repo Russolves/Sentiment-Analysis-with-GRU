@@ -16,6 +16,11 @@ During testing, the model's accuracy is computed and the confusion matrix is gen
 
 These metrics are useful for evaluating the performance of the model and determining whether it is performing well or not. The confusion matrix can provide insight into which classes the model is struggling with and help with identifying potential improvements.
 
+# Custom Implementation of Gated Recurrent Units (customGRU)
+In this implementation of the Gated Recurrent Units (GRUs), the customGRU class is used to implement a custom version of the GRU logic. The forward function is defined to take in an input tensor data and a hidden state tensor hidden, with an optional boolean parameter sequence_end. The input tensor data represents a single tokenized review, and the hidden state tensor hidden represents the hidden state of the model from the previous time step. The boolean sequence_end flag is used to indicate whether the current input tensor data is the last in the sequence.
+
+The custom GRU implementation uses three separate sequential layers to compute the forget gate, the output from the hidden layer, and the output of the GRU cell. The forget gate is used to decide how much of the previous hidden state to retain, while the output layer produces the current hidden state of the GRU cell. At the final time step, the forward function returns the final output tensor final_out, which is passed through the final sequential layer to produce the output tensor of the GRU cell. The init_hidden function is used to initialize the hidden state tensor hidden with zero values, which is the standard method for initializing RNNs.
+
 # Dependencies
 - Pytorch
 - NumPy
